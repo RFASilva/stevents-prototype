@@ -90,7 +90,24 @@
 			<artifactId>weka</artifactId>
 			<version>1.0</version>
 		</dependency>
-
+		<build>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>2.4</version>
+					<executions>
+						<execution>
+							<id>copy-dependencies</id>
+							<phase>package</phase>
+							<goals>
+								<goal>copy-dependencies</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</build>
 	</dependencies>
 
 	<repositories>
@@ -99,14 +116,14 @@
 			<name>project</name>
 			<url>file:${project.basedir}/repo</url>
 		</repository>
-		
+
 		<repository>
 			<id>maven2-repository.dev.java.net</id>
 			<name>Java.net repository</name>
 			<url>http://download.java.net/maven/2</url>
 		</repository>
 
-		
+
 
 		<!-- <repository> -->
 		<!-- <id>osgeo</id> -->
@@ -122,5 +139,6 @@
 			<url>http://repo.opengeo.org</url>
 		</repository>
 	</repositories>
+
 
 </project>
