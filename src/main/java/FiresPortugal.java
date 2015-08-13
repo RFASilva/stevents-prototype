@@ -1,4 +1,7 @@
-import java.io.FileReader;
+/*import java.io.FileReader;
+
+//TODO: REMOVE COMMENTS
+ 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -328,3 +331,4 @@ public class FiresPortugal {
 
 
 }
+*/

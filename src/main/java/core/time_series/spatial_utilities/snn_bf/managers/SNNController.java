@@ -153,7 +153,9 @@ public class SNNController {
 		FileReader fileIn = new FileReader(new File(fileProp[0]));
 		numObjsToRead = Long.parseLong(fileProp[1]);
 		
-		mg = new PSManager(fileIn, numObjsToRead, handlesRep);
+//		mg = new PSManager(fileIn, numObjsToRead, handlesRep);
+		
+		//TODO: REMOVE COMMENTS
 		
 		return fileProp[0];
 	}

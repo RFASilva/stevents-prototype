@@ -8,16 +8,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import org.geotools.geometry.jts.JTS;
-import org.geotools.referencing.CRS;
-import org.geotools.referencing.crs.DefaultGeographicCRS;
-import org.opengis.geometry.MismatchedDimensionException;
-import org.opengis.referencing.FactoryException;
-import org.opengis.referencing.crs.CoordinateReferenceSystem;
-import org.opengis.referencing.operation.MathTransform;
-import org.opengis.referencing.operation.TransformException;
+import javax.xml.crypto.dsig.TransformException;
 
-import com.vividsolutions.jts.densify.Densifier;
 import com.vividsolutions.jts.geom.Geometry;
 import com.vividsolutions.jts.geom.GeometryCollection;
 import com.vividsolutions.jts.io.ParseException;
@@ -89,6 +81,8 @@ public class ConvexHullTimeSeries  extends TimeSeriesFactory {
 		//		double vertexSpacing = convexHull.getLength() / 1000.0; // for example
 		//		Geometry densePolygon = Densifier.densify(convexHull, vertexSpacing);
 
+		
+		/*
 		Geometry geometryTransformed = null;
 		try {
 			CoordinateReferenceSystem from = CRS.decode("EPSG:4326", true);
@@ -103,7 +97,11 @@ public class ConvexHullTimeSeries  extends TimeSeriesFactory {
 		} catch (MismatchedDimensionException | TransformException | FactoryException e) {
 			e.printStackTrace();
 		}
-		return 	geometryTransformed.getArea() / (double)1000000.0; //square megameters
+		return 	geometryTransformed.getArea() / (double)1000000.0; //square megameters*/
+		
+		//TODO: remove comments
+		
+		return 0;
 	}
 
 
