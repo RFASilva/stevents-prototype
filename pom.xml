@@ -67,7 +67,6 @@
 			<version>2.1.0</version>
 		</dependency>
 
-
 		<dependency>
 			<groupId>com.own</groupId>
 			<artifactId>commons-math</artifactId>
@@ -96,16 +95,18 @@
 
 	<repositories>
 		<repository>
+			<id>project.local</id>
+			<name>project</name>
+			<url>file:${project.basedir}/repo</url>
+		</repository>
+		
+		<repository>
 			<id>maven2-repository.dev.java.net</id>
 			<name>Java.net repository</name>
 			<url>http://download.java.net/maven/2</url>
 		</repository>
 
-		<repository>
-			<id>project.local</id>
-			<name>project</name>
-			<url>file:${project.basedir}/repo</url>
-		</repository>
+		
 
 		<!-- <repository> -->
 		<!-- <id>osgeo</id> -->
