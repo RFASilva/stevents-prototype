@@ -1,0 +1,116 @@
+﻿<html>
+<head>
+<title>Changes Prototype</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="script/leaflet-0.7.1/leaflet.css" />
+<link rel="stylesheet" type="text/css"
+	href="script/jqplot/jquery.jqplot.css" />
+<link rel="stylesheet" href="script/jquery-ui.css" />
+<link rel="stylesheet" href="script/leaflet.draw.css" />
+<link rel="stylesheet" href="script/leaflet.contextmenu.css" />
+<link rel="stylesheet" href="script/jquery-ui.css" />
+
+
+<!-- <script type="text/javascript" src="script/leaflet-0.6.4/leaflet.js"></script> -->
+<script type="text/javascript" src="script/leaflet-0.7.1/leaflet.js"></script>
+<script type="text/javascript" src="script/leaflet.draw-src.js"></script>
+
+
+<script src="script/jquery-1.9.1.min.js"></script>
+<script src="script/jquery-ui.js"></script>
+
+
+	<script id="pointVertexShader" type="x-shader/x-vertex">
+		attribute vec4 worldCoord;
+		attribute float aPointSize;
+		uniform mat4 mapMatrix;
+
+		void main() {
+			// transform world coordinate by matrix uniform variable
+			gl_Position = (mapMatrix * worldCoord);
+			gl_PointSize = aPointSize;
+
+		}
+    </script>
+    
+	<script id="pointFragmentShader" type="x-shader/x-fragment">
+		precision mediump float;
+
+		void main() {
+        	  gl_FragColor = vec4(1,0,0,0.3);
+		}
+
+    </script>
+
+
+<script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
+<script src="script/leaflet-0.6.4/Google.js"></script>
+<script type="text/javascript" src="WebGLmapcomponent.js"></script>
+<script type="text/javascript" src="timeseriescomponent.js"></script>
+
+<script src="script/jquery.sparkline.js"></script>
+
+
+<link rel="stylesheet" href="style.css"></link>
+
+</head>
+<body>
+	<div id="buttons">
+		<a id="charts-button" class="button"
+			onclick="$('#timeseries').toggle();">TimeSeries</a> <select
+			id="dataset">
+			<option value="accidents_usa">Accidents in USA</option>
+			<option value="fires_portugal" selected>Forest Fires in
+				Portugal</option>
+			<option value="accidents_portugal" selected>Accidents in
+				Portugal</option>
+		</select> <select id="granularity">
+			<option value="year">Year</option>
+			<option value="month" selected>Month</option>
+			<option value="day" selected>Day</option>
+			<option value="hour" selected>Hour</option>
+		</select>
+		<button id="charts-button" class="button" onclick="getTimeSeries();">Get
+			Them!</button>
+
+	</div>
+
+	<div id="timeseries"></div>
+
+	<!--<div id="status-section">
+		<a id="refresh-button" class="button">Refresh</a>
+		<div id="status"></div>
+	</div>-->
+
+	<div id="map"> </div>
+
+	<div id="saveForm" title="Save Time Series">
+		<p class="validateTips">All fields are required.</p>
+
+		<form>
+			<fieldset>
+				<label for="name">Region Name:</label> <input type="text"
+					name="filename" id="filename"
+					class="text ui-widget-content ui-corner-all"> <br /> <label
+					for="description">Description:</label> <input type="text"
+					name="description" id="description" value=""
+					class="text ui-widget-content ui-corner-all">
+			</fieldset>
+		</form>
+
+
+	</div>
+
+
+	<script>
+		$(document).ready(function() {
+			init();
+			//$("#dataset").change(function() {
+			//dataset = this.value;
+			//init();
+			//});
+
+		});
+	</script>
+</body>
+</html>

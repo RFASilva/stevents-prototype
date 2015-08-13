@@ -1,0 +1,251 @@
+body {
+	margin: 0px;
+	font-size: 62.5%;
+}
+
+#buttons {
+	padding: 3px;
+	background-color: white;
+	border-radius: 5px;
+	border: 1px solid grey;
+	z-index: 2000;
+	box-shadow: 1px 1px 10px #888888;
+	/* 	overflow:scroll; */
+}
+
+#timeseries {
+	padding: 3px;
+	background-color: white;
+	border-radius: 5px;
+	border: 1px solid grey;
+	z-index: 2000;
+	box-shadow: 1px 1px 10px #888888;
+}
+
+#buttons {
+	position: absolute;
+	right: 1px;
+	top: 2px;
+}
+
+#timeseries {
+	width: 410px;
+	height: 550px;
+	position: absolute;
+	right: 1px;
+	top: 35px;
+	z-index: 50;
+	overflow-y: scrool;
+	overflow-x: hidden;
+}
+
+.path {
+	stroke: steelblue;
+	stroke-width: 2;
+	fill: none;
+}
+
+.axis path,.axis line {
+	fill: none;
+	stroke: grey;
+	stroke-width: 1;
+	shape-rendering: crispEdges;
+}
+
+.brush .extent {
+	stroke: #fff;
+	fill-opacity: .125;
+	shape-rendering: crispEdges;
+}
+
+#stats {
+	float: right;
+	width: 330px;
+	height: 150px;
+}
+
+#stats2 {
+	float: right;
+	width: 330px;
+	height: 120px;
+}
+
+#stats3 {
+	float: right;
+	width: 330px;
+	height: 120px;
+}
+
+table.jqplot-table-legend {
+	border: none;
+	font-size: 9px;
+	margin: 5px;
+}
+
+#mapzoom {
+	border: 0;
+}
+
+#numelements {
+	border: 0;
+}
+
+#map {
+	float: left;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+#pointscanvas {
+	position: absolute;
+}
+
+.button {
+	-moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+	box-shadow: inset 0px 1px 0px 0px #ffffff;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed
+		), color-stop(1, #dfdfdf));
+	background: -moz-linear-gradient(center top, #ededed 5%, #dfdfdf 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed',
+		endColorstr='#dfdfdf');
+	background-color: #ededed;
+	-webkit-border-top-left-radius: 6px;
+	-moz-border-radius-topleft: 6px;
+	border-top-left-radius: 6px;
+	-webkit-border-top-right-radius: 6px;
+	-moz-border-radius-topright: 6px;
+	border-top-right-radius: 6px;
+	-webkit-border-bottom-right-radius: 6px;
+	-moz-border-radius-bottomright: 6px;
+	border-bottom-right-radius: 6px;
+	-webkit-border-bottom-left-radius: 6px;
+	-moz-border-radius-bottomleft: 6px;
+	border-bottom-left-radius: 6px;
+	text-indent: 0;
+	border: 1px solid #dcdcdc;
+	display: inline-block;
+	color: #777777;
+	font-family: arial;
+	font-size: 10px;
+	font-weight: bold;
+	font-style: normal;
+	height: 20px;
+	line-height: 20px;
+	width: 80px;
+	text-decoration: none;
+	text-align: center;
+	text-shadow: 1px 1px 0px #ffffff;
+}
+
+.button:hover {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #dfdfdf
+		), color-stop(1, #ededed));
+	background: -moz-linear-gradient(center top, #dfdfdf 5%, #ededed 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf',
+		endColorstr='#ededed');
+	background-color: #dfdfdf;
+}
+
+.button:active {
+	position: relative;
+	top: 1px;
+}
+
+#utils-commands-section,#utils-status-section {
+	width: 1100px;
+	height: 400px;
+	margin: 0px;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+#utils-commands-section {
+	height: 250px;
+}
+
+#utils-status-section {
+	padding: 5px;
+}
+
+#utils-status-section,#utils-commands-section #commands-section,#utils-commands-section #monitor-section
+	{
+	border: 1px solid grey;
+}
+
+#utils-commands-section h4 {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#utils-commands-section #commands-section,#utils-commands-section #monitor-section
+	{
+	width: 540px;
+	padding: 5px;
+}
+
+#utils-commands-section #commands-section {
+	float: left;
+	height: 236px;
+}
+
+#utils-commands-section #monitor-section {
+	float: right;
+	margin-right: -10px;
+}
+
+#monitor {
+	height: 180px;
+	overflow: auto;
+	margin-top: 5px;
+}
+
+#monitor-table {
+	font-size: 11px;
+	margin-top: 10px;
+}
+
+#monitor-table td,#monitor-table th {
+	padding-left: 0;
+	padding-right: 15;
+}
+
+#monitor-table th {
+	text-align: left;
+}
+
+#monitor-table td:nth-child(2) {
+	max-width: 260px;
+}
+
+#utils-status-section #status {
+	height: 360px;
+}
+
+
+input.text {
+	margin-bottom: 12px;
+	width: 95%;
+	padding: .4em;
+}
+
+fieldset {
+	padding: 0;
+	border: 0;
+	margin-top: 25px;
+}
+
+h1 {
+	font-size: 1.2em;
+	margin: .6em 0;
+}
+
+.ui-dialog .ui-state-error {
+	padding: .3em;
+}
+
+.validateTips {
+	border: 1px solid transparent;
+	padding: 0.3em;
+}
