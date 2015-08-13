@@ -199,7 +199,7 @@ public class Loader {
 
 
 			connection.close();
-		} catch (SQLException | ParseException exception) {
+		} catch (Exception exception) {
 			exception.printStackTrace();
 		}
 
@@ -563,7 +563,7 @@ public class Loader {
 			strBuilder.append("]}");
 
 			connection.close();
-		} catch (SQLException | ParseException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
