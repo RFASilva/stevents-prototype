@@ -27,4 +27,8 @@ public class Config {
 	public static String getConfigString(final String prop) {
 		return config.getProperty(prop);
 	}
+	
+	public static void setConfigString(final String prop, final String value) {
+		config.setProperty(prop, value);
+	}
 }

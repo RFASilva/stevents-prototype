@@ -7,6 +7,7 @@ import java.util.Map;
 import com.sun.grizzly.http.SelectorThread;
 import com.sun.jersey.api.container.grizzly.GrizzlyWebContainerFactory;
 
+import core.Config;
 import core.Context;
 import core.shared.Column;
 import core.shared.Table;
@@ -77,6 +78,11 @@ public class Main {
 	public static void main(final String[] args) throws Exception {
 		final String baseUri = "http://localhost:"+(System.getenv("PORT")!=null?System.getenv("PORT"):"9998")+"/";
         final Map<String, String> initParams = new HashMap<String, String>();
+        
+        Config.setConfigString("meta_store_url", System.getenv("DATABASE_URL"));
+        
+        System.out.println(Config.getConfigString("meta_store_url"));
+        
 //        setContextFiresPortugal();  
         initParams.put("com.sun.jersey.config.property.packages","api_server");
         
