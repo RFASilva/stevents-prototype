@@ -46,7 +46,7 @@ public class Main {
 		tableToStore.add(new Column("up_geo_hash", false, false, "INTEGER"));
 		tableToStore.add(new Column("up_geometry", false, false, "GEOMETRY"));
 		tableToStore.add(new Column("date", false, false, "TIMESTAMP WITHOUT TIME ZONE"));
-		context = new Context("hour", 1, tableToStore, "fires_portugal");
+//		context = new Context("hour", 1, tableToStore, "fires_portugal");
 	}
 
 //	private static void addResources(TJWSEmbeddedJaxrsServer webServer) {
