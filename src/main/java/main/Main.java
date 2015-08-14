@@ -1,14 +1,15 @@
 package main;
 
 
+import java.sql.Connection;
 import java.util.HashMap;
 import java.util.Map;
 
 import com.sun.grizzly.http.SelectorThread;
 import com.sun.jersey.api.container.grizzly.GrizzlyWebContainerFactory;
 
-import core.Config;
 import core.Context;
+import core.load_data.DataStoreInfo;
 import core.shared.Column;
 import core.shared.Table;
 //import org.jboss.resteasy.jsapi.JSAPIServlet;
@@ -79,11 +80,26 @@ public class Main {
 		final String baseUri = "http://localhost:"+(System.getenv("PORT")!=null?System.getenv("PORT"):"9998")+"/";
         final Map<String, String> initParams = new HashMap<String, String>();
         
-        Config.setConfigString("meta_store_url", System.getenv("DATABASE_URL"));
+//        setContextFiresPortugal(); 
         
-        System.out.println(Config.getConfigString("meta_store_url"));
+        try {
+
+			Class.forName("org.postgresql.Driver");
+
+		} catch (ClassNotFoundException e) {
+
+			System.out.println("Where is your PostgreSQL JDBC Driver? "
+					+ "Include in your library path!");
+			e.printStackTrace();
+			return;
+
+		}
+
+		System.out.println("PostgreSQL JDBC Driver Registered!");
+        Connection conn = DataStoreInfo.getMetaStore();
         
-        setContextFiresPortugal();  
+        System.out.println("connection made");
+        
         initParams.put("com.sun.jersey.config.property.packages","api_server");
         
         System.out.println("Starting grizzly...");
