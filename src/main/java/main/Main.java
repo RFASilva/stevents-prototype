@@ -80,8 +80,6 @@ public class Main {
 		final String baseUri = "http://localhost:"+(System.getenv("PORT")!=null?System.getenv("PORT"):"9998")+"/";
         final Map<String, String> initParams = new HashMap<String, String>();
         
-//        setContextFiresPortugal(); 
-        
         try {
 
 			Class.forName("org.postgresql.Driver");
@@ -94,11 +92,10 @@ public class Main {
 			return;
 
 		}
-
-		System.out.println("PostgreSQL JDBC Driver Registered!");
-        Connection conn = DataStoreInfo.getMetaStore();
         
-        System.out.println("connection made");
+        setContextFiresPortugal();
+        
+//        System.out.println("connection made");
         
         initParams.put("com.sun.jersey.config.property.packages","api_server");
         
