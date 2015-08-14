@@ -15,7 +15,7 @@ public class StaticResources {
 	@GET
 	@Path("{file:.*}")
 	public File load(@PathParam("file") final String filename) {
-		System.out.println("here: + " + filename);
+//		System.out.println("here: + " + filename);
 		return new File("web_development/" + filename);
 	}
 
