@@ -83,7 +83,7 @@ public class Main {
         
         System.out.println(Config.getConfigString("meta_store_url"));
         
-//        setContextFiresPortugal();  
+        setContextFiresPortugal();  
         initParams.put("com.sun.jersey.config.property.packages","api_server");
         
         System.out.println("Starting grizzly...");
