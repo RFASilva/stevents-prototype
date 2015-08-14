@@ -77,7 +77,7 @@ public class Main {
 	public static void main(final String[] args) throws Exception {
 		final String baseUri = "http://localhost:"+(System.getenv("PORT")!=null?System.getenv("PORT"):"9998")+"/";
         final Map<String, String> initParams = new HashMap<String, String>();
-//        setContextFiresPortugal(); 
+//        setContextFiresPortugal();  
         initParams.put("com.sun.jersey.config.property.packages","api_server");
         
         System.out.println("Starting grizzly...");
