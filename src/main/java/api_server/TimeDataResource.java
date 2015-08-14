@@ -20,6 +20,7 @@ import javax.ws.rs.core.StreamingOutput;
 import org.jboss.resteasy.annotations.GZIP;
 import org.jboss.resteasy.annotations.cache.Cache;
 
+import core.Context;
 import core.load_data.Loader;
 import core.shared.Column;
 import core.shared.Table;

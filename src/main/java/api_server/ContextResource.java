@@ -9,6 +9,7 @@ import com.vividsolutions.jts.geom.Geometry;
 import com.vividsolutions.jts.geom.GeometryFactory;
 import com.vividsolutions.jts.geom.Polygon;
 
+import core.Context;
 import core.shared.Column;
 import core.shared.Table;
 import core.time_series.TimeSeriesManager;
