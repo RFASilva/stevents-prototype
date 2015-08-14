@@ -1,4 +1,4 @@
-/*import java.io.FileReader;
+import java.io.FileReader;
 
 //TODO: REMOVE COMMENTS
  
@@ -7,14 +7,14 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Map;
 
-import org.geotools.geometry.jts.JTS;
-import org.geotools.referencing.CRS;
-import org.opengis.geometry.MismatchedDimensionException;
-import org.opengis.referencing.FactoryException;
-import org.opengis.referencing.NoSuchAuthorityCodeException;
-import org.opengis.referencing.crs.CoordinateReferenceSystem;
-import org.opengis.referencing.operation.MathTransform;
-import org.opengis.referencing.operation.TransformException;
+//import org.geotools.geometry.jts.JTS;
+//import org.geotools.referencing.CRS;
+//import org.opengis.geometry.MismatchedDimensionException;
+//import org.opengis.referencing.FactoryException;
+//import org.opengis.referencing.NoSuchAuthorityCodeException;
+//import org.opengis.referencing.crs.CoordinateReferenceSystem;
+//import org.opengis.referencing.operation.MathTransform;
+//import org.opengis.referencing.operation.TransformException;
 import org.supercsv.cellprocessor.ParseBool;
 import org.supercsv.cellprocessor.constraint.NotNull;
 import org.supercsv.cellprocessor.constraint.UniqueHashCode;
@@ -137,21 +137,21 @@ public class FiresPortugal {
 		System.out.println(insertStatement);
 	}
 
-
-	private static Geometry convertCoords(double x, double y) throws NoSuchAuthorityCodeException, FactoryException, MismatchedDimensionException, TransformException {
-		GeometryFactory geofact = new GeometryFactory(new PrecisionModel(), 920790);
-		Geometry geom = geofact.createPoint( new Coordinate(x, y));
-
-		CoordinateReferenceSystem from;
-		CoordinateReferenceSystem to;
-
-		from = CRS.decode("EPSG:20790", true); // Datum Lisboa/Hayford-Gauss com falsa origem - Coordinates Militares
-		to = CRS.decode("EPSG:4326", true);
-		MathTransform transform  = CRS.findMathTransform(from, to, true); 
-		return JTS.transform(geom, transform);
-
-
-	}
+	//TODO: REMOVE COMMENT
+//	private static Geometry convertCoords(double x, double y) throws NoSuchAuthorityCodeException, FactoryException, MismatchedDimensionException, TransformException {
+//		GeometryFactory geofact = new GeometryFactory(new PrecisionModel(), 920790);
+//		Geometry geom = geofact.createPoint( new Coordinate(x, y));
+//
+//		CoordinateReferenceSystem from;
+//		CoordinateReferenceSystem to;
+//
+//		from = CRS.decode("EPSG:20790", true); // Datum Lisboa/Hayford-Gauss com falsa origem - Coordinates Militares
+//		to = CRS.decode("EPSG:4326", true);
+//		MathTransform transform  = CRS.findMathTransform(from, to, true); 
+//		return JTS.transform(geom, transform);
+//
+//
+//	}
 
 
 	public static void readAndWriteWithCsvMapReader(String fileName) throws Exception {
@@ -176,7 +176,7 @@ public class FiresPortugal {
 //				System.out.println(mapReader.getRowNumber());
 				
 				// Obter informacao
-				String codigo = (String) line.get("Código");
+				String codigo = (String) line.get("Cï¿½digo");
 				String tipo = (String) line.get("Tipo");
 				String distrito = (String) line.get("Distrito");
 				String concelho = (String) line.get("Concelho");
@@ -189,7 +189,7 @@ public class FiresPortugal {
 				double latitude = Double.parseDouble((String)line.get("y"));
 				Geometry geom;
 				try {
-					geom = convertCoords(longitud, latitude);
+//					geom = convertCoords(longitud, latitude); //TODO: REMOVE COMMENT
 				} catch(Exception e) {
 					System.out.println("Falhou conversao de coordenadas");
 					continue;
@@ -217,8 +217,8 @@ public class FiresPortugal {
 				int minute = Integer.parseInt(temp2[1]);
 
 
-				String dataExtincao = (String) line.get("DataExtinção");
-				String horaExtincao = (String) line.get("HoraExtinção");
+				String dataExtincao = (String) line.get("DataExtinï¿½ï¿½o");
+				String horaExtincao = (String) line.get("HoraExtinï¿½ï¿½o");
 				String dataInterv = (String) line.get("Data1Interv");
 				String horaInterv = (String) line.get("Hora1Interv");
 				String fonteAlerta = (String) line.get("FonteAlerta");
@@ -228,7 +228,7 @@ public class FiresPortugal {
 				double aa_apovoamento = Double.parseDouble((String) line.get("AA_Povoamento"));
 				double aa_mato = Double.parseDouble((String) line.get("AA_Mato"));
 				double aa_agricola = Double.parseDouble((String) line.get("AA_Agricola"));
-				double aa_espacoflorestal = Double.parseDouble((String) line.get("AA_EspaçoFlorestal (Pov+mato)"));
+				double aa_espacoflorestal = Double.parseDouble((String) line.get("AA_Espaï¿½oFlorestal (Pov+mato)"));
 				double aa_total = Double.parseDouble((String) line.get("AA_Total(pov+mato+agric)"));
 
 				boolean reacendimento = (boolean) line.get("Reacendimento");
@@ -251,8 +251,8 @@ public class FiresPortugal {
 				ps.setString(5, freguesia);
 				ps.setString(6, local);
 				ps.setInt(7, ine);
-				ps.setDouble(8, geom.getCoordinates()[0].y);
-				ps.setDouble(9, geom.getCoordinates()[0].x);
+//				ps.setDouble(8, geom.getCoordinates()[0].y); //TODO: REMOVE COMMENT
+//				ps.setDouble(9, geom.getCoordinates()[0].x); //TODO: REMOVE COMMENT
 
 				
 				ps.setInt(10, year);
@@ -331,4 +331,3 @@ public class FiresPortugal {
 
 
 }
-*/
