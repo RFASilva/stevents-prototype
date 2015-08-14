@@ -25,11 +25,6 @@
 			<version>1.9.18-i</version>
 		</dependency>
 		<dependency>
-			<groupId>postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<version>9.1-901-1.jdbc4</version>
-		</dependency>
-		<dependency>
 			<groupId>com.vividsolutions</groupId>
 			<artifactId>jts</artifactId>
 			<version>1.13</version>
@@ -100,6 +95,11 @@
 			<groupId>com.own</groupId>
 			<artifactId>weka</artifactId>
 			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.4-1201-jdbc41</version>
 		</dependency>
 	</dependencies>
 
