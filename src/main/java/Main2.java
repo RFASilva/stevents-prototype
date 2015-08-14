@@ -13,7 +13,7 @@ import core.shared.Table;
 //import org.jboss.resteasy.jsapi.JSAPIServlet;
 //import org.jboss.resteasy.plugins.server.tjws.TJWSEmbeddedJaxrsServer;
 
-public class Main {
+public class Main2 {
 
 	public static Context context;
 
