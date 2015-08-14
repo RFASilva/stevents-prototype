@@ -4,15 +4,14 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
 
+import main.Main;
+
 import com.vividsolutions.jts.geom.Coordinate;
 import com.vividsolutions.jts.geom.Geometry;
 import com.vividsolutions.jts.geom.GeometryFactory;
 import com.vividsolutions.jts.geom.Polygon;
 
 import core.Context;
-import core.shared.Column;
-import core.shared.Table;
-import core.time_series.TimeSeriesManager;
 
 @Path("context")
 public class ContextResource {
@@ -22,7 +21,7 @@ public class ContextResource {
 			@QueryParam("geometry") final String geometry,
 			@QueryParam("dataset") final String mainDataset) {
 
-		Context context = Server.context;
+		Context context = Main.context;
 		context.setRestricted(isRestricted);
 
 		if(!geometry.equals("null")) {
@@ -51,10 +50,10 @@ public class ContextResource {
 		
 		
 		if(mainDataset.equals("accidents_usa")) {
-			Server.context.setTableToRead( new Table("accidents_usa_up", "pk_id"));
+//			Server.context.setTableToRead( new Table("accidents_usa_up", "pk_id"));
 		}
 		else if(mainDataset.equals("fires_portugal")) {
-			Server.context.setTableToRead( new Table("fires_portugal_up", "pk_id"));
+//			Server.context.setTableToRead( new Table("fires_portugal_up", "pk_id"));
 		}
 		
 		

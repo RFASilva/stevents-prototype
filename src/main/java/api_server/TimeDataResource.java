@@ -17,6 +17,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.StreamingOutput;
 
+import main.Main;
+
 import org.jboss.resteasy.annotations.GZIP;
 import org.jboss.resteasy.annotations.cache.Cache;
 
@@ -48,7 +50,7 @@ public class TimeDataResource {
 		WebApplicationException {
 			
 			Writer writer = new BufferedWriter(new OutputStreamWriter(os));
-			Context context = Server.context;
+			Context context = Main.context;
 			
 			String json = "";
 			if(!isRestricted)
@@ -125,9 +127,9 @@ public class TimeDataResource {
 		tableToStoreMeta.add(new Column("length", false, false, "NUMERIC"));
 		
 
-		Server.context.setTimeManager(new TimeSeriesManager(granularity, Server.context.getLoader()));
-		Server.context.getTimeManager().setTableToStore(tableToStore);
-		Server.context.getTimeManager().setTableToStoreMeta(tableToStoreMeta);
+		Main.context.setTimeManager(new TimeSeriesManager(granularity, Main.context.getLoader()));
+		Main.context.getTimeManager().setTableToStore(tableToStore);
+		Main.context.getTimeManager().setTableToStoreMeta(tableToStoreMeta);
 	}
 
 }

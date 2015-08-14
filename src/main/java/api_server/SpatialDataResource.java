@@ -5,11 +5,9 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
-import java.sql.Connection;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.WebApplicationException;
@@ -17,12 +15,12 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.StreamingOutput;
 
+import main.Main;
+
 import org.jboss.resteasy.annotations.GZIP;
 import org.jboss.resteasy.annotations.cache.Cache;
 
 import core.Context;
-import core.load_data.DataStoreInfo;
-import core.load_data.Loader;
 import core.shared.Table;
 
 
@@ -46,7 +44,7 @@ public class SpatialDataResource {
 
 			Writer writer = new BufferedWriter(new OutputStreamWriter(os));
 			String ret = null;
-			Context context = Server.context;
+			Context context = Main.context;
 			String geojson = "";
 
 			if(posEnd ==-1) 
@@ -69,20 +67,20 @@ public class SpatialDataResource {
 			@QueryParam("posEnd") final String posEnd, @QueryParam("tableName") final String tableName, @QueryParam("granularity") final String granularity) {
 		try {
 
-			Server.context.setTimeGranularity(granularity);
-			Server.context.setFromTable(tableName);
+			Main.context.setTimeGranularity(granularity);
+			Main.context.setFromTable(tableName);
 
 			if(tableName.equals("accidents_usa")) {
-				Server.context.setTableToRead( new Table("accidents_usa_up", "pk_id"));
+				Main.context.setTableToRead( new Table("accidents_usa_up", "pk_id"));
 			}
 			else if(tableName.equals("fires_portugal")) {
-				Server.context.setTableToRead( new Table("fires_portugal_up", "pk_id"));
+				Main.context.setTableToRead( new Table("fires_portugal_up", "pk_id"));
 			}
 			else if(tableName.equals("accidents_portugal")) {
-				Server.context.setTableToRead( new Table("accidents_portugal_up", "pk_id"));
+				Main.context.setTableToRead( new Table("accidents_portugal_up", "pk_id"));
 			}
 
-			Server.context.updateTimeManager();
+			Main.context.updateTimeManager();
 
 			DataResponse info = new DataResponse(posInit, posEnd);
 			return Response.ok(info).build();
