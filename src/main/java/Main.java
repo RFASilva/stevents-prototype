@@ -61,7 +61,11 @@ public class Main {
 	public static void main(final String[] args) {
 		TJWSEmbeddedJaxrsServer webServer = new TJWSEmbeddedJaxrsServer();
 		
-		webServer.setPort(Config.getConfigInt("server_port"));
+//		webServer.setPort(Config.getConfigInt("server_port"));
+		String port = System.getenv("PORT")!=null?System.getenv("PORT"):"9998";
+		System.out.println("porta: " + port);
+		
+		webServer.setPort(Integer.parseInt(port));
 		webServer.setRootResourcePath("/");
 		webServer.start();
 		
